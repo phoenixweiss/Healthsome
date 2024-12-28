@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.autopep8",
+    "mikestead.dotenv",
+    "ms-python.isort",
+    "ms-python.vscode-pylance",
+    "ms-python.pylint",
+    "ms-python.python",
+    "ms-python.debugpy"
+  ]
+}

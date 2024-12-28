@@ -1,0 +1,156 @@
+/* Root variables for primary theme colors */
+:root {
+  --bs-primary: hsl(183, 44%, 41%);
+  --bs-primary-rgb: 0, 128, 133;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: hsl(0, 0%, 100%);
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: hsl(183, 44%, 35%) !important;
+    border-color: hsl(183, 44%, 35%) !important;
+  }
+}
+
+/* Link styles */
+a.nav-link {
+  color: hsl(183, 44%, 35%) !important;
+  &:visited {
+    color: hsl(183, 44%, 35%) !important;
+  }
+  &:hover {
+    color: hsl(305, 65%, 65%) !important;
+  }
+}
+.nav-link.active {
+  font-weight: bold;
+  cursor: default;
+}
+
+/* Global background and text styles */
+body {
+  background-color: hsl(26, 33%, 96%);
+}
+
+/* Paragraph links */
+p {
+  a {
+    color: hsl(183, 44%, 41%);
+    &:visited {
+      color: hsl(183, 44%, 41%);
+    }
+    &:hover {
+      color: hsl(305, 65%, 65%);
+    }
+  }
+}
+
+/* Status buttons */
+.btn-taken,
+.btn-not-taken {
+  color: hsl(0, 0%, 100%);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 1rem;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn-taken {
+  background-color: hsl(120, 100%, 25%);
+}
+.btn-not-taken {
+  background-color: hsl(0, 100%, 50%);
+}
+
+/* Header styles */
+header.navbar {
+  background-color: hsl(34, 81%, 92%);
+}
+
+/* Main content spacing */
+main {
+  margin-top: 1.5rem;
+}
+
+/* Logo styles */
+.header__logo {
+  height: 3rem;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+.footer__logo {
+  width: 5rem;
+  margin: 0 auto;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+/* Utility classes */
+.mt-auto {
+  margin-top: auto !important;
+}
+
+/* Form styles */
+.form-narrow {
+  max-width: 480px;
+}
+
+/* Flash message styles */
+.flash-messages {
+  color: hsl(0, 100%, 27%);
+}
+
+/* Main page styles */
+.main__page,
+.about__page {
+  a {
+    text-decoration: none;
+  }
+}
+
+/* Main logo */
+.main__logo {
+  max-width: 24rem;
+}
+
+/* Block styles with hover effects */
+.block__1 {
+  background-color: hsl(183, 47%, 59%) !important;
+  &:hover {
+    background-color: hsl(183, 47%, 49%) !important;
+  }
+}
+.block__2 {
+  background-color: hsl(338, 71%, 78%) !important;
+  &:hover {
+    background-color: hsl(338, 71%, 68%) !important;
+  }
+}
+.block__3 {
+  background-color: hsl(39, 84%, 58%) !important;
+  &:hover {
+    background-color: hsl(39, 84%, 48%) !important;
+  }
+}
+
+.table {
+  vertical-align: middle;
+}
+
+#chartLoader {
+  height: 200px; /* Matches the canvas height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

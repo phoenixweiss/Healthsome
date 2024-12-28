@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="col-lg-8 mx-auto my-5 about__page">
+    <h1>About Healthsome</h1>
+    <p>
+        Healthsome is a web application designed to simplify the way you track your health metrics. From monitoring
+        <a href="{{ url_for('blood_pressure.list_records') }}">
+            ❤️‍🩹 Blood Pressure
+        </a> and             <a href="{{ url_for('weight.list_records') }}">
+            ⚖️ Weight
+        </a> to managing your             <a href="{{ url_for('medications.list_records') }}">
+            💊 Medication schedule
+        </a>, Healthsome empowers users to take control of
+        their well-being with ease.
+    </p>
+    <p>
+        This project was developed by <strong>Pavel Tkachev</strong> as the final project for CS50x 2024. It reflects the core lessons of
+        the course, including web development, database management, and Python programming. Built with an emphasis on
+        practicality and adherence to CS50's Academic Honesty principles, Healthsome showcases the skills gained
+        throughout the program.
+    </p>
+
+    <h2>Key Features</h2>
+    <ul>
+        <li><strong>Health Tracking</strong>: Log and manage:
+            <ul>
+                <li><strong>Blood Pressure</strong>: Record systolic, diastolic values, and pulse.</li>
+                <li><strong>Weight</strong>: Track daily changes with precision.</li>
+                <li><strong>Medications</strong>: Monitor dosages and track medication intake.</li>
+            </ul>
+        </li>
+        <li><strong>Easy Setup</strong>: Simple installation and configuration using SQLite and environment variables.
+        </li>
+        <li><strong>User Accounts</strong>: Login and registration to manage personal data securely.</li>
+        <li><strong>Demo Data</strong>: Option to pre-fill the application with sample data for testing.</li>
+    </ul>
+
+    <h2>About CS50</h2>
+    <p>
+        CS50 is Harvard University's renowned introduction to computer science, taught by David J. Malan. Covering
+        fundamental programming concepts and computer science principles, CS50 provides a comprehensive foundation for
+        learners worldwide. As part of CS50x, the edX version of the course, Healthsome represents a culmination of the
+        skills and knowledge gained through the program.
+    </p>
+    <p>
+        Completing CS50x via edX has been a transformative experience, offering an opportunity to build real-world
+        projects and deepen my understanding of computer science.
+    </p>
+    <p>
+        For more about CS50, visit <a href="https://cs50.harvard.edu/x/2024/" target="_blank">CS50's website ↗</a>.
+    </p>
+</div>
+{% endblock %}

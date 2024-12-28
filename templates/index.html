@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="px-4 py-5 my-5 text-center main__page">
+    <img class="d-block mx-auto mb-5 main__logo" src="{{ url_for('static', filename='img/LOGO_H_FULL.svg') }}" alt="Healthsome Full Logo">
+
+    <h2 class="text-body-emphasis">Welcome, {{ current_user }}!</h2>
+
+    <div class="col-lg-8 mx-auto">
+
+        <p class="lead mb-4">Take control of your health journey with Healthsome. Choose one of the available metrics to
+            start tracking your progress:
+            <br>
+            <a href="{{ url_for('blood_pressure.list_records') }}">
+                ❤️‍🩹 Blood Pressure
+            </a>,
+            <a href="{{ url_for('weight.list_records') }}">
+                ⚖️ Weight
+            </a>, or
+            <a href="{{ url_for('medications.list_records') }}">
+                💊 Medications
+            </a>.
+            <br>
+            With Healthsome, monitoring your health is simple, intuitive, and effective.
+        </p>
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-3">
+                <a class="d-block text-decoration-none text-bg-dark rounded-4 p-4 block__1"
+                    href="{{ url_for('blood_pressure.list_records') }}">
+                    <h4 class="pt-5 lh-1 text-white">
+                        Blood Pressure
+                    </h4>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-3">
+                <a class="d-block text-decoration-none text-bg-dark rounded-4 p-4 block__2"
+                    href="{{ url_for('weight.list_records') }}">
+                    <h4 class="pt-5 lh-1 text-white">
+                        Weight
+                    </h4>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-3">
+                <a class="d-block text-decoration-none text-bg-dark rounded-4 p-4 block__3"
+                    href="{{ url_for('medications.list_records') }}">
+                    <h4 class="pt-5 lh-1 text-white">
+                        Medications
+                    </h4>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

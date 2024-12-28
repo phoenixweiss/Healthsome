@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="form-narrow w-100 m-auto">
+    <h1>Edit Medication Record</h1>
+    <form action="{{ url_for('medications.edit_record', record_id=record.id) }}" method="post">
+
+        <label class="form-label" for="date_time">Date & Time:</label>
+        <input class="form-control" type="datetime-local" id="date_time" name="date_time" value="{{ record.date_time }}" required>
+
+        <br>
+
+        <label class="form-label" for="medication_name">Medication Name:</label>
+        <input class="form-control" type="text" id="medication_name" name="medication_name" value="{{ record.medication_name }}" placeholder="Enter medication name" required>
+
+        <br>
+
+        <label class="form-label" for="dosage">Dosage:</label>
+        <input class="form-control" type="text" id="dosage" name="dosage" value="{{ record.dosage }}" placeholder="Enter dosage" required>
+
+        <br>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="taken" name="taken" value="1" {% if record.taken %}checked{% endif %}>
+            <label class="form-check-label" for="taken">Taken</label>
+        </div>
+
+        <br>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Save Changes</button>
+            <a class="btn btn-secondary" href="{{ url_for('medications.list_records') }}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

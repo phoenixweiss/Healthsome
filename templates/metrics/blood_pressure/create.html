@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="form-narrow w-100 m-auto">
+    <h1>Add New Blood Pressure Record</h1>
+    <form action="{{ url_for('blood_pressure.create_record') }}" method="post">
+
+        <label class="form-label" for="date_time">Date & Time:</label>
+        <input class="form-control" type="datetime-local" id="date_time" name="date_time" value="{{ current_time }}"
+            required>
+
+        <br>
+
+        <label class="form-label" for="systolic">Systolic:</label>
+        <input class="form-control" type="number" id="systolic" name="systolic" placeholder="Enter systolic pressure"
+            required>
+
+        <br>
+
+        <label class="form-label" for="diastolic">Diastolic:</label>
+        <input class="form-control" type="number" id="diastolic" name="diastolic" placeholder="Enter diastolic pressure"
+            required>
+
+        <br>
+
+        <label class="form-label" for="pulse">Pulse:</label>
+        <input class="form-control" type="number" id="pulse" name="pulse" placeholder="Enter pulse" required>
+
+        <br>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Add Record</button>
+            <a class="btn btn-secondary" href="{{ url_for('blood_pressure.list_records') }}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

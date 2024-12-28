@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="form-narrow w-100 m-auto">
+    <h1>Add New Weight Record</h1>
+    <form action="{{ url_for('weight.create_record') }}" method="post">
+
+        <label class="form-label" for="date_time">Date & Time:</label>
+        <input class="form-control" type="datetime-local" id="date_time" name="date_time" value="{{ current_time }}" required>
+
+        <br>
+
+        <label class="form-label" for="weight_value">Weight:</label>
+        <input class="form-control" type="number" id="weight_value" name="weight_value" step="0.1" placeholder="Enter your weight" required>
+
+        <br>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Add Record</button>
+            <a class="btn btn-secondary" href="{{ url_for('weight.list_records') }}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

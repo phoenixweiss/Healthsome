@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="form-narrow w-100 m-auto">
+    <h1>Register</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flash-messages">
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('auth.register') }}" method="post">
+
+        <label class="form-label" for="username">Username:</label>
+        <input class="form-control" type="text" id="username" name="username" placeholder="Enter your username"
+            required>
+
+        <br>
+
+        <label class="form-label" for="password">Password:</label>
+        <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password"
+            required>
+
+        <br>
+
+        <label class="form-label" for="confirmation">Confirm Password:</label>
+
+        <input class="form-control" type="password" id="confirmation" name="confirmation"
+            placeholder="Confirm your password" required>
+
+            <br>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Register</button>
+            <p>Already have an account? <a href="{{ url_for('auth.login') }}">Log in here</a>.</p>
+        </div>
+    </form>
+</div>
+{% endblock %}

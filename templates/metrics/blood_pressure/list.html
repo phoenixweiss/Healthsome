@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="col-lg-8 mx-auto">
+    <h1>Blood Pressure Records</h1>
+    <p>Monitoring your blood pressure regularly is key to maintaining a healthy heart. With Healthsome, you can log your
+        systolic, diastolic, and pulse readings effortlessly. Track your trends over time and take control of your
+        cardiovascular health.</p>
+    <a class="btn btn-primary rounded-pill px-3 mb-3" href="{{ url_for('blood_pressure.create_record') }}">Add New
+        Record</a>
+
+    {% if records %}
+    <!-- Preloader -->
+    <div id="chartLoader" class="d-flex justify-content-center align-items-center" style="height: 200px;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <!-- Chart -->
+    <canvas id="bloodPressureChart" width="400" height="200" class="d-none"></canvas>
+    {% endif %}
+
+    <form method="get" class="mb-3">
+        <label for="range">Show data for:</label>
+        <select id="range" name="range" class="form-select" onchange="this.form.submit()">
+            <option value="last_week" {% if range_option=='last_week' %}selected{% endif %}>Last Week</option>
+            <option value="last_month" {% if range_option=='last_month' %}selected{% endif %}>Last Month</option>
+            <option value="all_time" {% if range_option=='all_time' %}selected{% endif %}>All Time</option>
+        </select>
+    </form>
+
+    <table border="1" class="table table-striped table-hover mt-4">
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Systolic</th>
+                <th>Diastolic</th>
+                <th>Pulse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.date_time|to_iso_format }}</td>
+                <td>{{ record.systolic }}</td>
+                <td>{{ record.diastolic }}</td>
+                <td>{{ record.pulse }}</td>
+                <td>
+                    <a class="btn btn-warning rounded-pill px-3"
+                        href="{{ url_for('blood_pressure.edit_record', record_id=record.id) }}">Edit</a>
+                    <form action="{{ url_for('blood_pressure.delete_record', record_id=record.id) }}" method="post"
+                        style="display:inline;">
+                        <button class="btn btn-danger rounded-pill px-3" type="submit"
+                            onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not records %}
+    <p class="text-center mb-5">No records found.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if records %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/blood_pressure_chart.js') }}"></script>
+{% endif %}
+{% endblock %}

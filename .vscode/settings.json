@@ -1,0 +1,21 @@
+{
+  "python.defaultInterpreterPath": "venv/bin/python",
+  "cSpell.words": [
+    "AUTOINCREMENT",
+    "cachelib",
+    "dotenv",
+    "endmacro",
+    "executescript",
+    "healthsome",
+    "itsdangerous",
+    "jsonify",
+    "lastrowid",
+    "Malan",
+    "msgspec",
+    "sqlparse",
+    "subfolders",
+    "termcolor",
+    "venv",
+    "Werkzeug"
+  ]
+}
